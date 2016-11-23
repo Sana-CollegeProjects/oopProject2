@@ -11,6 +11,14 @@ package project2;
  */
 public class OneGuessGUI extends javax.swing.JFrame {
 
+    private int num1;
+    private int num2;
+    private int num3;
+    private int num4;
+    private int num5;
+    private int winNum;
+    private int lottoNum[];
+
     /**
      * Creates new form OneGuessGUI
      */
@@ -47,6 +55,7 @@ public class OneGuessGUI extends javax.swing.JFrame {
         threeTrialBtn = new javax.swing.JButton();
         danyGameLbl = new javax.swing.JLabel();
         danyGameBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         backgroundLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,55 +72,55 @@ public class OneGuessGUI extends javax.swing.JFrame {
         oneLbl.setForeground(new java.awt.Color(255, 255, 255));
         oneLbl.setText("Digit 1");
         getContentPane().add(oneLbl);
-        oneLbl.setBounds(117, 198, 39, 17);
+        oneLbl.setBounds(117, 198, 40, 17);
 
         twoLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         twoLbl.setForeground(new java.awt.Color(255, 255, 255));
         twoLbl.setText("Digit 2");
         getContentPane().add(twoLbl);
-        twoLbl.setBounds(117, 224, 39, 17);
+        twoLbl.setBounds(117, 224, 40, 17);
 
         threeLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         threeLbl.setForeground(new java.awt.Color(255, 255, 255));
         threeLbl.setText("Digit 3");
         getContentPane().add(threeLbl);
-        threeLbl.setBounds(117, 247, 39, 17);
+        threeLbl.setBounds(117, 247, 40, 17);
 
         fourLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fourLbl.setForeground(new java.awt.Color(255, 255, 255));
         fourLbl.setText("Digit 4");
         getContentPane().add(fourLbl);
-        fourLbl.setBounds(117, 270, 39, 17);
+        fourLbl.setBounds(117, 270, 40, 17);
 
         fiveLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fiveLbl.setForeground(new java.awt.Color(255, 255, 255));
         fiveLbl.setText("Digit 5");
         getContentPane().add(fiveLbl);
-        fiveLbl.setBounds(117, 294, 39, 17);
+        fiveLbl.setBounds(117, 294, 40, 17);
 
         twoTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(twoTxt);
-        twoTxt.setBounds(196, 220, 29, 21);
+        twoTxt.setBounds(196, 220, 29, 25);
 
         oneTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(oneTxt);
-        oneTxt.setBounds(196, 197, 29, 21);
+        oneTxt.setBounds(196, 197, 29, 25);
 
         threeTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(threeTxt);
-        threeTxt.setBounds(196, 243, 29, 21);
+        threeTxt.setBounds(196, 243, 29, 25);
 
         fourTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(fourTxt);
-        fourTxt.setBounds(196, 266, 29, 21);
+        fourTxt.setBounds(196, 266, 29, 25);
 
         fiveTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(fiveTxt);
-        fiveTxt.setBounds(196, 293, 29, 21);
+        fiveTxt.setBounds(196, 293, 29, 25);
 
         submitLbl.setText("Send my guess!");
         getContentPane().add(submitLbl);
-        submitLbl.setBounds(224, 363, 76, 14);
+        submitLbl.setBounds(224, 363, 98, 16);
 
         submitBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         submitBtn.setText("Submit");
@@ -121,20 +130,20 @@ public class OneGuessGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(submitBtn);
-        submitBtn.setBounds(209, 383, 105, 37);
+        submitBtn.setBounds(209, 383, 116, 37);
 
-        resultsLbl.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        resultsLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         resultsLbl.setForeground(new java.awt.Color(255, 204, 204));
         resultsLbl.setText(" ");
         getContentPane().add(resultsLbl);
-        resultsLbl.setBounds(10, 530, 690, 58);
+        resultsLbl.setBounds(10, 620, 690, 58);
 
         otherGamesFrame.setVisible(true);
         otherGamesFrame.getContentPane().setLayout(null);
 
         otherGamesLbl.setText("You may also try the games with :");
         otherGamesFrame.getContentPane().add(otherGamesLbl);
-        otherGamesLbl.setBounds(32, 11, 163, 14);
+        otherGamesLbl.setBounds(32, 11, 213, 16);
 
         twoTrialBtn.setText("2 Trials");
         twoTrialBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +152,7 @@ public class OneGuessGUI extends javax.swing.JFrame {
             }
         });
         otherGamesFrame.getContentPane().add(twoTrialBtn);
-        twoTrialBtn.setBounds(88, 58, 67, 23);
+        twoTrialBtn.setBounds(88, 58, 91, 29);
 
         threeTrialBtn.setText("3 Trials");
         threeTrialBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -152,11 +161,11 @@ public class OneGuessGUI extends javax.swing.JFrame {
             }
         });
         otherGamesFrame.getContentPane().add(threeTrialBtn);
-        threeTrialBtn.setBounds(88, 92, 67, 23);
+        threeTrialBtn.setBounds(88, 92, 91, 29);
 
         danyGameLbl.setText("Or alternatively,");
         otherGamesFrame.getContentPane().add(danyGameLbl);
-        danyGameLbl.setBounds(32, 160, 79, 14);
+        danyGameLbl.setBounds(32, 160, 100, 16);
 
         danyGameBtn.setText("Lotto, Plus 1 and Plus 2 Game");
         danyGameBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -165,10 +174,20 @@ public class OneGuessGUI extends javax.swing.JFrame {
             }
         });
         otherGamesFrame.getContentPane().add(danyGameBtn);
-        danyGameBtn.setBounds(20, 192, 175, 23);
+        danyGameBtn.setBounds(20, 192, 231, 29);
 
         getContentPane().add(otherGamesFrame);
-        otherGamesFrame.setBounds(420, 180, 247, 319);
+        otherGamesFrame.setBounds(410, 180, 280, 319);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(210, 430, 120, 40);
 
         backgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project2/Images/background.jpg"))); // NOI18N
         getContentPane().add(backgroundLbl);
@@ -179,6 +198,26 @@ public class OneGuessGUI extends javax.swing.JFrame {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        winNum=0;
+        num1 = Integer.parseInt(oneTxt.getText());
+        num2 = Integer.parseInt(twoTxt.getText());
+        num3 = Integer.parseInt(threeTxt.getText());
+        num4 = Integer.parseInt(fourTxt.getText());
+        num5 = Integer.parseInt(fiveTxt.getText());
+
+        lottoNum = new int[5];
+        for (int i = 0; i < 5; i++) {
+            lottoNum[i] = (int) (Math.random() * 40 + 1);
+            System.out.println("lotto num are:" + lottoNum[i]);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (lottoNum[i] == num1 || lottoNum[i] == num2 || lottoNum[i] == num3 || lottoNum[i] == num4 || lottoNum[i] == num5) {
+                winNum++;
+            }
+        }
+        
+        resultsLbl.setText("You have guessed "+winNum+" numbers correctly.");
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void twoTrialBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoTrialBtnActionPerformed
@@ -198,6 +237,17 @@ public class OneGuessGUI extends javax.swing.JFrame {
     private void danyGameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_danyGameBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_danyGameBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        oneTxt.setText("");
+        twoTxt.setText("");
+        threeTxt.setText("");
+        fourTxt.setText("");
+        fiveTxt.setText("");
+        resultsLbl.setText(" ");
+        winNum=0;
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +293,7 @@ public class OneGuessGUI extends javax.swing.JFrame {
     private javax.swing.JTextField fiveTxt;
     private javax.swing.JLabel fourLbl;
     private javax.swing.JTextField fourTxt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel oneLbl;
     private javax.swing.JTextField oneTxt;
     private javax.swing.JInternalFrame otherGamesFrame;

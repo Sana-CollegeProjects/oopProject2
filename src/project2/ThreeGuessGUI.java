@@ -11,6 +11,14 @@ package project2;
  */
 public class ThreeGuessGUI extends javax.swing.JFrame {
 
+    private int lottoNum[];
+    private int userGuess1[];
+    private int userGuess2[];
+    private int userGuess3[];
+    private int winNum1;
+    private int winNum2;
+    private int winNum3;
+
     /**
      * Creates new form ThreeGuessGUI
      */
@@ -27,65 +35,80 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        captionLbl = new javax.swing.JLabel();
-        oneLbl = new javax.swing.JLabel();
-        twoLbl = new javax.swing.JLabel();
-        threeLbl = new javax.swing.JLabel();
-        fourLbl = new javax.swing.JLabel();
-        fiveLbl = new javax.swing.JLabel();
-        twoTxt = new javax.swing.JTextField();
-        oneTxt = new javax.swing.JTextField();
-        threeTxt = new javax.swing.JTextField();
-        fourTxt = new javax.swing.JTextField();
-        fiveTxt = new javax.swing.JTextField();
-        submitLbl = new javax.swing.JLabel();
+        resultsLbl2 = new javax.swing.JLabel();
+        resultsLbl1 = new javax.swing.JLabel();
+        titleLbl = new javax.swing.JLabel();
+        guess1Lbl = new javax.swing.JLabel();
+        guess3Lbl = new javax.swing.JLabel();
+        guess2Lbl1 = new javax.swing.JLabel();
+        userGuess1Txt = new javax.swing.JTextField();
+        userGuess3Txt = new javax.swing.JTextField();
+        userGuess2Txt = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
-        resultsLbl = new javax.swing.JLabel();
+        resetBtn = new javax.swing.JButton();
+        subtitleLbl = new javax.swing.JLabel();
         otherGamesFrame = new javax.swing.JInternalFrame();
         otherGamesLbl = new javax.swing.JLabel();
+        oneTrialBtn = new javax.swing.JButton();
         twoTrialBtn = new javax.swing.JButton();
-        threeTrialBtn = new javax.swing.JButton();
         danyGameLbl = new javax.swing.JLabel();
         danyGameBtn = new javax.swing.JButton();
         backgroundLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        captionLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        captionLbl.setForeground(new java.awt.Color(255, 255, 204));
-        captionLbl.setText("Please enter your five special digits below!");
+        resultsLbl2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        resultsLbl2.setForeground(new java.awt.Color(255, 204, 204));
+        getContentPane().add(resultsLbl2);
+        resultsLbl2.setBounds(80, 660, 600, 22);
 
-        oneLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        oneLbl.setForeground(new java.awt.Color(255, 255, 255));
-        oneLbl.setText("Digit 1");
+        resultsLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        resultsLbl1.setForeground(new java.awt.Color(255, 204, 204));
+        resultsLbl1.setText("  ");
+        getContentPane().add(resultsLbl1);
+        resultsLbl1.setBounds(110, 630, 570, 22);
 
-        twoLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        twoLbl.setForeground(new java.awt.Color(255, 255, 255));
-        twoLbl.setText("Digit 2");
+        titleLbl.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        titleLbl.setForeground(new java.awt.Color(255, 255, 204));
+        titleLbl.setText("Please enter your two guesses!");
+        getContentPane().add(titleLbl);
+        titleLbl.setBounds(153, 85, 358, 30);
 
-        threeLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        threeLbl.setForeground(new java.awt.Color(255, 255, 255));
-        threeLbl.setText("Digit 3");
+        guess1Lbl.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        guess1Lbl.setForeground(new java.awt.Color(255, 255, 204));
+        guess1Lbl.setText("Guess 1");
+        getContentPane().add(guess1Lbl);
+        guess1Lbl.setBounds(75, 170, 92, 30);
 
-        fourLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fourLbl.setForeground(new java.awt.Color(255, 255, 255));
-        fourLbl.setText("Digit 4");
+        guess3Lbl.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        guess3Lbl.setForeground(new java.awt.Color(255, 255, 204));
+        guess3Lbl.setText("Guess 3");
+        getContentPane().add(guess3Lbl);
+        guess3Lbl.setBounds(80, 360, 92, 30);
 
-        fiveLbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fiveLbl.setForeground(new java.awt.Color(255, 255, 255));
-        fiveLbl.setText("Digit 5");
+        guess2Lbl1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        guess2Lbl1.setForeground(new java.awt.Color(255, 255, 204));
+        guess2Lbl1.setText("Guess 2");
+        getContentPane().add(guess2Lbl1);
+        guess2Lbl1.setBounds(75, 264, 92, 30);
 
-        twoTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        userGuess1Txt.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        userGuess1Txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userGuess1TxtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(userGuess1Txt);
+        userGuess1Txt.setBounds(75, 206, 324, 40);
 
-        oneTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        userGuess3Txt.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(userGuess3Txt);
+        userGuess3Txt.setBounds(80, 390, 324, 40);
 
-        threeTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        fourTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        fiveTxt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        submitLbl.setText("Send my guess!");
+        userGuess2Txt.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(userGuess2Txt);
+        userGuess2Txt.setBounds(75, 300, 324, 40);
 
         submitBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         submitBtn.setText("Submit");
@@ -94,14 +117,38 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
                 submitBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(submitBtn);
+        submitBtn.setBounds(100, 520, 116, 37);
 
-        resultsLbl.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        resultsLbl.setForeground(new java.awt.Color(255, 204, 204));
-        resultsLbl.setText(" ");
+        resetBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        resetBtn.setText("Reset");
+        resetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(resetBtn);
+        resetBtn.setBounds(240, 520, 104, 37);
+
+        subtitleLbl.setText("Please ensure that they are between 1 and 40 and are separated by commas");
+        getContentPane().add(subtitleLbl);
+        subtitleLbl.setBounds(150, 110, 474, 16);
 
         otherGamesFrame.setVisible(true);
+        otherGamesFrame.getContentPane().setLayout(null);
 
         otherGamesLbl.setText("You may also try the games with :");
+        otherGamesFrame.getContentPane().add(otherGamesLbl);
+        otherGamesLbl.setBounds(32, 11, 213, 16);
+
+        oneTrialBtn.setText("1 Trial");
+        oneTrialBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneTrialBtnActionPerformed(evt);
+            }
+        });
+        otherGamesFrame.getContentPane().add(oneTrialBtn);
+        oneTrialBtn.setBounds(88, 58, 84, 29);
 
         twoTrialBtn.setText("2 Trials");
         twoTrialBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -109,15 +156,12 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
                 twoTrialBtnActionPerformed(evt);
             }
         });
-
-        threeTrialBtn.setText("3 Trials");
-        threeTrialBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                threeTrialBtnActionPerformed(evt);
-            }
-        });
+        otherGamesFrame.getContentPane().add(twoTrialBtn);
+        twoTrialBtn.setBounds(88, 92, 91, 29);
 
         danyGameLbl.setText("Or alternatively,");
+        otherGamesFrame.getContentPane().add(danyGameLbl);
+        danyGameLbl.setBounds(32, 160, 100, 16);
 
         danyGameBtn.setText("Lotto, Plus 1 and Plus 2 Game");
         danyGameBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -125,150 +169,92 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
                 danyGameBtnActionPerformed(evt);
             }
         });
+        otherGamesFrame.getContentPane().add(danyGameBtn);
+        danyGameBtn.setBounds(20, 192, 231, 29);
 
-        javax.swing.GroupLayout otherGamesFrameLayout = new javax.swing.GroupLayout(otherGamesFrame.getContentPane());
-        otherGamesFrame.getContentPane().setLayout(otherGamesFrameLayout);
-        otherGamesFrameLayout.setHorizontalGroup(
-            otherGamesFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGamesFrameLayout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
-                .addComponent(danyGameBtn)
-                .addGap(36, 36, 36))
-            .addGroup(otherGamesFrameLayout.createSequentialGroup()
-                .addGroup(otherGamesFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(otherGamesFrameLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(otherGamesFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(danyGameLbl)
-                            .addComponent(otherGamesLbl)))
-                    .addGroup(otherGamesFrameLayout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addGroup(otherGamesFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(threeTrialBtn)
-                            .addComponent(twoTrialBtn))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        otherGamesFrameLayout.setVerticalGroup(
-            otherGamesFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(otherGamesFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(otherGamesLbl)
-                .addGap(33, 33, 33)
-                .addComponent(twoTrialBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(threeTrialBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(danyGameLbl)
-                .addGap(18, 18, 18)
-                .addComponent(danyGameBtn)
-                .addGap(74, 74, 74))
-        );
+        getContentPane().add(otherGamesFrame);
+        otherGamesFrame.setBounds(410, 180, 280, 319);
 
         backgroundLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project2/Images/background.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(threeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fourTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(471, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(89, 89, 89)
-                            .addComponent(captionLbl))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(117, 117, 117)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(oneLbl)
-                                .addComponent(twoLbl)
-                                .addComponent(threeLbl)
-                                .addComponent(fourLbl))
-                            .addGap(40, 40, 40)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(oneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(twoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(submitLbl))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(13, 13, 13)
-                                    .addComponent(submitBtn)))
-                            .addGap(106, 106, 106)
-                            .addComponent(otherGamesFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(196, 196, 196)
-                            .addComponent(fiveTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(resultsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(117, 117, 117)
-                            .addComponent(fiveLbl))
-                        .addComponent(backgroundLbl))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(246, 246, 246)
-                .addComponent(threeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fourTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(406, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(131, 131, 131)
-                            .addComponent(captionLbl)
-                            .addGap(20, 20, 20)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(oneLbl)
-                                    .addGap(9, 9, 9)
-                                    .addComponent(twoLbl)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(threeLbl)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(fourLbl))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(17, 17, 17)
-                                    .addComponent(oneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(2, 2, 2)
-                                    .addComponent(twoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(122, 122, 122)
-                                    .addComponent(submitLbl)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(submitBtn))
-                                .addComponent(otherGamesFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(293, 293, 293)
-                            .addComponent(fiveTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(530, 530, 530)
-                            .addComponent(resultsLbl))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(294, 294, 294)
-                            .addComponent(fiveLbl))
-                        .addComponent(backgroundLbl))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(backgroundLbl);
+        backgroundLbl.setBounds(0, 0, 700, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void userGuess1TxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userGuess1TxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userGuess1TxtActionPerformed
+
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        winNum1=0;
+        winNum2=0;
+        winNum3=0;
+        
+        lottoNum = new int[5];
+        for (int i = 0; i < 5; i++) {
+            lottoNum[i] = (int) (Math.random() * 40 + 1);
+            System.out.println("lotto num are:" + lottoNum[i]);
+        }
+        String[] tokens = userGuess1Txt.getText().split(",");
+        userGuess1 = new int[5];
+        for (int i = 0; i < 5; i++) {
+            userGuess1[i] = Integer.parseInt(tokens[i]);
+        }
+
+        String[] tokens2 = userGuess2Txt.getText().split(",");
+        userGuess2 = new int[5];
+        for (int i = 0; i < 5; i++) {
+            userGuess2[i] = Integer.parseInt(tokens2[i]);
+        }
+        
+        String[] tokens3 = userGuess3Txt.getText().split(",");
+        userGuess3 = new int[5];
+        for (int i = 0; i < 5; i++) {
+            userGuess3[i] = Integer.parseInt(tokens3[i]);
+        }
+
+        //userGuess = Arrays.stream(userGuess1Txt.getText().split(",")).mapToInt(Integer::parseInt).toArray();
+        //userGuess1 = Arrays.stream(userGuess2Txt.getText().split(",")).mapToInt(Integer::parseInt).toArray();
+        for (int i = 0; i < 5; i++) {
+            if (lottoNum[i] == userGuess1[0] || lottoNum[i] == userGuess1[1] || lottoNum[i] == userGuess1[2] || lottoNum[i] == userGuess1[3] || lottoNum[i] == userGuess1[4]) {
+                winNum1++;
+            }
+        }
+        for (int j = 0; j < 5; j++) {
+            if (lottoNum[j] == userGuess2[0] || lottoNum[j] == userGuess2[1] || lottoNum[j] == userGuess2[2] || lottoNum[j] == userGuess2[3] || lottoNum[j] == userGuess2[4]) {
+                winNum2++;
+            }
+        }
+        
+        for (int j = 0; j < 5; j++) {
+            if (lottoNum[j] == userGuess3[0] || lottoNum[j] == userGuess3[1] || lottoNum[j] == userGuess3[2] || lottoNum[j] == userGuess3[3] || lottoNum[j] == userGuess3[4]) {
+                winNum3++;
+            }
+        }
+
+        resultsLbl1.setText("You've got "+winNum1+" right guesses in line 1");
+        resultsLbl2.setText(winNum2+" in line 2."+" and "+winNum3+" in line 3");
     }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
+        // TODO add your handling code here:
+        winNum1 = 0;
+        winNum2 = 0;
+        winNum3 = 0;
+        resultsLbl1.setText(" ");
+        userGuess1Txt.setText("");
+        userGuess3Txt.setText("");
+        userGuess2Txt.setText("");
+    }//GEN-LAST:event_resetBtnActionPerformed
+
+    private void oneTrialBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneTrialBtnActionPerformed
+        // TODO add your handling code here:
+        OneGuessGUI myGuess = new OneGuessGUI();
+        myGuess.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_oneTrialBtnActionPerformed
 
     private void twoTrialBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoTrialBtnActionPerformed
         // TODO add your handling code here:
@@ -276,13 +262,6 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
         myGuess.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_twoTrialBtnActionPerformed
-
-    private void threeTrialBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeTrialBtnActionPerformed
-        // TODO add your handling code here:
-        ThreeGuessGUI myGuess = new ThreeGuessGUI();
-        myGuess.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_threeTrialBtnActionPerformed
 
     private void danyGameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_danyGameBtnActionPerformed
         // TODO add your handling code here:
@@ -325,25 +304,23 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundLbl;
-    private javax.swing.JLabel captionLbl;
     private javax.swing.JButton danyGameBtn;
     private javax.swing.JLabel danyGameLbl;
-    private javax.swing.JLabel fiveLbl;
-    private javax.swing.JTextField fiveTxt;
-    private javax.swing.JLabel fourLbl;
-    private javax.swing.JTextField fourTxt;
-    private javax.swing.JLabel oneLbl;
-    private javax.swing.JTextField oneTxt;
+    private javax.swing.JLabel guess1Lbl;
+    private javax.swing.JLabel guess2Lbl1;
+    private javax.swing.JLabel guess3Lbl;
+    private javax.swing.JButton oneTrialBtn;
     private javax.swing.JInternalFrame otherGamesFrame;
     private javax.swing.JLabel otherGamesLbl;
-    private javax.swing.JLabel resultsLbl;
+    private javax.swing.JButton resetBtn;
+    private javax.swing.JLabel resultsLbl1;
+    private javax.swing.JLabel resultsLbl2;
     private javax.swing.JButton submitBtn;
-    private javax.swing.JLabel submitLbl;
-    private javax.swing.JLabel threeLbl;
-    private javax.swing.JButton threeTrialBtn;
-    private javax.swing.JTextField threeTxt;
-    private javax.swing.JLabel twoLbl;
+    private javax.swing.JLabel subtitleLbl;
+    private javax.swing.JLabel titleLbl;
     private javax.swing.JButton twoTrialBtn;
-    private javax.swing.JTextField twoTxt;
+    private javax.swing.JTextField userGuess1Txt;
+    private javax.swing.JTextField userGuess2Txt;
+    private javax.swing.JTextField userGuess3Txt;
     // End of variables declaration//GEN-END:variables
 }

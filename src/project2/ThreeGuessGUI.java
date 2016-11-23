@@ -56,6 +56,7 @@ public class ThreeGuessGUI extends javax.swing.JFrame {
         backgroundLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 700));
         getContentPane().setLayout(null);
 
         resultsLbl2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N

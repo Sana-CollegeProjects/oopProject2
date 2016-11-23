@@ -18,7 +18,6 @@ public class TwoGuessGUI extends javax.swing.JFrame {
     private int userGuess1[];
     private int winNum1;
     private int winNum2;
-    
 
     /**
      * Creates new form TwoGuessGUI
@@ -189,9 +188,21 @@ public class TwoGuessGUI extends javax.swing.JFrame {
             lottoNum[i] = (int) (Math.random() * 40 + 1);
             System.out.println("lotto num are:" + lottoNum[i]);
         }
-
-        userGuess = Arrays.stream(userGuess1Txt.getText().split(",")).mapToInt(Integer::parseInt).toArray();
-        userGuess1 = Arrays.stream(userGuess2Txt.getText().split(",")).mapToInt(Integer::parseInt).toArray();
+        String[] tokens = userGuess1Txt.getText().split(",");
+        userGuess = new int[5];
+        for (int i = 0; i < 5; i++) {
+            userGuess[i] = Integer.parseInt(tokens[i]);
+        }
+        
+        String[] tokens2 = userGuess2Txt.getText().split(",");
+        userGuess1 = new int[5];
+        for (int i = 0; i < 5; i++) {
+            userGuess1[i] = Integer.parseInt(tokens2[i]);
+        }
+        
+        
+        //userGuess = Arrays.stream(userGuess1Txt.getText().split(",")).mapToInt(Integer::parseInt).toArray();
+        //userGuess1 = Arrays.stream(userGuess2Txt.getText().split(",")).mapToInt(Integer::parseInt).toArray();
 
         for (int i = 0; i < 5; i++) {
             if (lottoNum[i] == userGuess[0] || lottoNum[i] == userGuess[1] || lottoNum[i] == userGuess[2] || lottoNum[i] == userGuess[3] || lottoNum[i] == userGuess[4]) {
@@ -203,14 +214,14 @@ public class TwoGuessGUI extends javax.swing.JFrame {
                 winNum2++;
             }
         }
-        
-        resultsLbl.setText("You've got "+winNum1+" right guesses in line 1 and "+winNum2+"in line 2.");
+
+        resultsLbl.setText("You've got " + winNum1 + " right guesses in line 1 and " + winNum2 + "in line 2.");
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
         // TODO add your handling code here:
-        winNum1=0;
-        winNum2=0;
+        winNum1 = 0;
+        winNum2 = 0;
         resultsLbl.setText(" ");
         userGuess1Txt.setText("");
         userGuess2Txt.setText("");

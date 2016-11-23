@@ -36,6 +36,8 @@ public class TwoGuessGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        resultsLbl2 = new javax.swing.JLabel();
+        resultsLbl1 = new javax.swing.JLabel();
         titleLbl = new javax.swing.JLabel();
         guess1Lbl = new javax.swing.JLabel();
         guess2Lbl = new javax.swing.JLabel();
@@ -44,7 +46,6 @@ public class TwoGuessGUI extends javax.swing.JFrame {
         submitBtn = new javax.swing.JButton();
         resetBtn = new javax.swing.JButton();
         subtitleLbl = new javax.swing.JLabel();
-        resultsLbl = new javax.swing.JLabel();
         otherGamesFrame = new javax.swing.JInternalFrame();
         otherGamesLbl = new javax.swing.JLabel();
         oneTrialBtn = new javax.swing.JButton();
@@ -55,7 +56,19 @@ public class TwoGuessGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 700));
         jPanel1.setLayout(null);
+
+        resultsLbl2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        resultsLbl2.setForeground(new java.awt.Color(255, 204, 204));
+        jPanel1.add(resultsLbl2);
+        resultsLbl2.setBounds(80, 660, 600, 22);
+
+        resultsLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        resultsLbl1.setForeground(new java.awt.Color(255, 204, 204));
+        resultsLbl1.setText("  ");
+        jPanel1.add(resultsLbl1);
+        resultsLbl1.setBounds(110, 630, 570, 22);
 
         titleLbl.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         titleLbl.setForeground(new java.awt.Color(255, 255, 204));
@@ -111,12 +124,6 @@ public class TwoGuessGUI extends javax.swing.JFrame {
         subtitleLbl.setText("Please ensure that they are between 1 and 40 and are separated by commas");
         jPanel1.add(subtitleLbl);
         subtitleLbl.setBounds(150, 110, 474, 16);
-
-        resultsLbl.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        resultsLbl.setForeground(new java.awt.Color(255, 204, 204));
-        resultsLbl.setText("  ");
-        jPanel1.add(resultsLbl);
-        resultsLbl.setBounds(30, 640, 12, 22);
 
         otherGamesFrame.setVisible(true);
         otherGamesFrame.getContentPane().setLayout(null);
@@ -215,14 +222,15 @@ public class TwoGuessGUI extends javax.swing.JFrame {
             }
         }
 
-        resultsLbl.setText("You've got " + winNum1 + " right guesses in line 1 and " + winNum2 + "in line 2.");
+        resultsLbl1.setText("You've got "+winNum1+" right guesses in line 1");
+        resultsLbl2.setText("and "+winNum2+" in line 2.");
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
         // TODO add your handling code here:
         winNum1 = 0;
         winNum2 = 0;
-        resultsLbl.setText(" ");
+        resultsLbl1.setText(" ");
         userGuess1Txt.setText("");
         userGuess2Txt.setText("");
     }//GEN-LAST:event_resetBtnActionPerformed
@@ -291,7 +299,8 @@ public class TwoGuessGUI extends javax.swing.JFrame {
     private javax.swing.JInternalFrame otherGamesFrame;
     private javax.swing.JLabel otherGamesLbl;
     private javax.swing.JButton resetBtn;
-    private javax.swing.JLabel resultsLbl;
+    private javax.swing.JLabel resultsLbl1;
+    private javax.swing.JLabel resultsLbl2;
     private javax.swing.JButton submitBtn;
     private javax.swing.JLabel subtitleLbl;
     private javax.swing.JButton threeTrialBtn;
